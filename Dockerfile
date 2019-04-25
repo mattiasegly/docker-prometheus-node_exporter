@@ -3,8 +3,8 @@ FROM balenalib/rpi:stretch AS builder
 RUN [ "cross-build-start" ]
 
 ARG OS=linux
-ARG PRODUCT=node_exporter
 ARG ARCH=armv6
+ARG PRODUCT=node_exporter
 ARG RELEASE=0.17.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
