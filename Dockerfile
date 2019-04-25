@@ -22,10 +22,12 @@ FROM balenalib/rpi:buster
 RUN [ "cross-build-start" ]
 
 COPY --from=builder /extract /node_exporter
+RUN chown -R nobody:nogroup /node_exporter
 
 RUN [ "cross-build-end" ]
 
 EXPOSE 9100
+USER nobody
 
 #ENTRYPOINT ["entrypoint.sh"]
 CMD ["/node_exporter/node_exporter"]
