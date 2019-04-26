@@ -28,4 +28,4 @@ RUN [ "cross-build-end" ]
 EXPOSE 9100
 
 #ENTRYPOINT ["entrypoint.sh"]
-CMD ["/node_exporter/node_exporter", "--path.rootfs"]
+CMD ["/node_exporter/node_exporter", "--path.rootfs", "/host"]
