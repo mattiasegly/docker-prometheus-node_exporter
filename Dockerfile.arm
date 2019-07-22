@@ -10,6 +10,7 @@ ARG RELEASE=0.18.1
 RUN apt-get update && apt-get install -y --no-install-recommends \
 	curl \
 	tar \
+	ca-certificates \
 && rm -rf /var/lib/apt/lists/*
 
 RUN curl -LJ https://github.com/prometheus/$PRODUCT/releases/download/v$RELEASE/$PRODUCT-$RELEASE.$OS-$ARCH.tar.gz -o $PRODUCT.tar.gz && \
