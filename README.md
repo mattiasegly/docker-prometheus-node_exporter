@@ -1,4 +1,4 @@
-# docker-rpi-prometheus-node_exporter
+# docker-prometheus-node_exporter
 Raspberry Pi Docker Container for Prometheus Node Exporter<BR>
 Work in progress, trying to create simple Prometheus Node Exporter container.
 
