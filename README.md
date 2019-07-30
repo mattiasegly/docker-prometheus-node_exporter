@@ -1,6 +1,8 @@
-# docker-prometheus-node_exporter
-Raspberry Pi Docker Container for Prometheus Node Exporter<BR>
-Work in progress, trying to create simple Prometheus Node Exporter container.
+# rpi-prometheus-node_exporter
+Raspberry Pi Docker Container for Prometheus Node Exporter
+
+Multiarch build using balena's Raspberry Pi image and docker's official Debian image.<BR>
+Running with tag :latest should work on all Raspberry Pi models and standard 64-bit hardware.
 
 Run with:<BR>
 docker run -d \\\
