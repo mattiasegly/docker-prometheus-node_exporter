@@ -1,4 +1,4 @@
-FROM balenalib/rpi:buster AS builder
+FROM balenalib/rpi-raspbian:buster AS builder
 RUN [ "cross-build-start" ]
 
 ARG OS=linux
@@ -12,13 +12,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	ca-certificates \
 && rm -rf /var/lib/apt/lists/*
 
+ENV CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 RUN curl -L https://github.com/prometheus/$PRODUCT/releases/download/v$RELEASE/$PRODUCT-$RELEASE.$OS-$ARCH.tar.gz -o $PRODUCT.tar.gz && \
 	mkdir /extract && \
 	tar -xzf $PRODUCT.tar.gz -C /extract --strip-components=1
 
 RUN [ "cross-build-end" ]
 
-FROM balenalib/rpi:buster
+FROM balenalib/rpi-raspbian:buster
 RUN [ "cross-build-start" ]
 
 COPY --from=builder /extract /node_exporter
