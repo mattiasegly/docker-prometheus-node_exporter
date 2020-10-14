@@ -1,4 +1,4 @@
-FROM balenalib/rpi-raspbian:buster AS builder
+FROM mattiasegly/base-image:arm AS builder
 RUN [ "cross-build-start" ]
 
 ARG OS=linux
@@ -19,7 +19,7 @@ RUN curl -L https://github.com/prometheus/$PRODUCT/releases/download/v$RELEASE/$
 
 RUN [ "cross-build-end" ]
 
-FROM balenalib/rpi-raspbian:buster
+FROM mattiasegly/base-image:arm
 RUN [ "cross-build-start" ]
 
 COPY --from=builder /extract /node_exporter
